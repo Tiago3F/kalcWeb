@@ -17,33 +17,35 @@
 <body>
 
     <div class="calculator">
-        <div class="screen">15x3</div>
+        <div class="screen"></div>
         <div class="buttons">
             <div class="numbers">
-                <button data-val="9">9</button>
-                <button data-val="8">8</button>
-                <button data-val="7">7</button>
-                <button data-val="6">6</button>
-                <button data-val="5">5</button>
-                <button data-val="4">4</button>
-                <button data-val="3">3</button>
-                <button data-val="2">2</button>
-                <button data-val="1">1</button>
-                <button data-val="clear">C</button>
-                <button data-val=".">.</button>
-                <button data-val="0" href="0">0</button>
+                <button data-val="9" id="nine" onclick="show(this)">9</button>
+                <button data-val="8" id="eight" onclick="show(this)">8</button>
+                <button data-val="7" id="seven" onclick="show(this)">7</button>
+                <button data-val="6" id="six" onclick="show(this)">6</button>
+                <button data-val="5" id="five" onclick="show(this)">5</button>
+                <button data-val="4" id="four" onclick="show(this)">4</button>
+                <button data-val="3" id="three" onclick="show(this)">3</button>
+                <button data-val="2" id="two" onclick="show(this)">2</button>
+                <button data-val="1" id="one" onclick="show(this)">1</button>
+                <button data-val="clear" id="lim" onclick="limp()">C</button>
+                <button data-val="." id="score" onclick="show(this)">.</button>
+                <button data-val="0" href="0" id="zero" onclick="show(this)">0</button>
             </div>
+
             <div class="operators">
-                <button data-val="÷">÷</button>
-                <button data-val="x">x</button>
-                <button data-val="-">-</button>
-                <button data-val="+">+</button>
-                <button data-val="=">=</button>
+                <button data-val="/" id="division" onclick="show(this)">/</button>
+                <button data-val="x" id="multiplication" onclick="show(this)">x</button>
+                <button data-val="-" id="subtraction" onclick="show(this)">-</button>
+                <button data-val="+" id="sum" onclick="op(this)">+</button>
+                <button data-val="=" id="equal" onclick="show(this)">=</button>
             </div>
         </div>
     </div>
 
-    <script src="js/kalkWeb.js?v=1.0"></script>
+
+    <script src="scriptCalculadora.js"></script>
 </body>
 
 </html>
