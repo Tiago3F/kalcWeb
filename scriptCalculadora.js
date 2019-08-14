@@ -1,37 +1,93 @@
-const zero = document.querySelector('button[data-val = "0"]')
-const one = document.querySelector('button[data-val = "1"]')
-const two = document.querySelector('button[data-val = "2"]')
-const three = document.querySelector('button[data-val = "3"]')
-const four = document.querySelector('button[data-val = "4"]')
-const five = document.querySelector('button[data-val = "5"]')
-const six = document.querySelector('button[data-val = "6"]')
-const seven = document.querySelector('button[data-val = "7"]')
-const eight = document.querySelector('button[data-val = "8"]')
-const nine = document.querySelector('button[data-val = "9"]')
-
-const clear = document.querySelector('button[data-val = "clear"]')
-const ponto = document.querySelector('button[data-val = "."]')
-
-const div = document.querySelector('button[data-val = "/"]')
-const multipli = document.querySelector('button[data-val = "x"]')
-const subt = document.querySelector('button[data-val = "-"]')
-const soma = document.querySelector('button[data-val = "+"]')
-const igual = document.querySelector('button[data-val = "="]')
+const soma = "+"
+const subt = "-"
+const div = "/"
+const multipli = "x"
 
 const exibirTela = document.querySelector('.screen')
 
+var valorAtu = 0
+var valorAnt = 0
+var resultado = 0
+var oper = 0
+var operando = false
 
-function show(numero){
-    exibirTela.innerText += numero.innerText
+function show(numero) {
+  if (operando) {
+    exibirTela.innerText = "";
+    exibirTela.innerText += numero
+  } else {
+    exibirTela.innerText += numero
+
+  }
+
 }
- 
-function limp(){
+
+function limp() {
+  exibirTela.innerText = ""
+}
+
+function pegaVal(numero) {
+  valorAtu = Number(numero)
+  show(numero)
+}
+
+
+function op(valor) {
+  oper = valor
+  operando = true
+  valorAnt = resultado
+  valorAtu = exibirTela.innerText
+
+  if (valor == soma) {
     exibirTela.innerText = ""
+
+    resultado = (Number(valorAnt) + Number(valorAtu))
+    show(resultado)
+    operando = true
+
+  } else if (valor == subt) {
+    exibirTela.innerText = ""
+
+    if (valorAnt == 0) {
+      resultado = (Number(valorAtu) - Number(valorAnt))
+      show(resultado)
+      operando = true
+    } else {
+      resultado = (Number(valorAnt) - Number(valorAtu))
+      show(resultado)
+      operando = true
+
+    }
+
+  } else if (valor == div) {
+    exibirTela.innerText = ""
+
+    if (valorAnt == 0 || valorAnt <= 0) {
+      resultado = (Number(valorAtu) / Number(1))
+      show(resultado)
+      operando = true
+    } else {
+      resultado = (Number(valorAnt) / Number(valorAtu))
+      show(resultado)
+      operando = true
+    }
+
+  } else if (valor == multipli) {
+    exibirTela.innerText = ""
+
+    if (valorAnt == 0) {
+      resultado = (Number(valorAtu) * Number(1))
+      show(resultado)
+      operando = true
+    } else {
+      resultado = (Number(valorAtu) * Number(valorAnt))
+      show(resultado)
+      operando = true
+    }
+  }
+
 }
 
-function op (numero){
-  if (numero.innerText == "+") {
-     val = parseInt(exibirTela.innerText)
- }
-  limp()
+const botaoIgual = function () {
+  op(oper);
 }
